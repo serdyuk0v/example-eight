@@ -11,7 +11,7 @@ public class Main {
         //Задание №2
         int clientOs = 0;
         int clientDeviceYear = 2022;
-        getClientOs(clientOs, clientDeviceYear);
+        printClientOs(clientOs, clientDeviceYear);
 
         //Задание №3
         int deliveryDistance = -22;
@@ -32,7 +32,7 @@ public class Main {
     }
 
     //Метод для задания №2
-    private static void getClientOs (int clientOs, int clientDeviceYear) {
+    private static void printClientOs (int clientOs, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
         if (clientOs <= 1 && clientOs >= 0) {
             if (clientOs == 1 && clientDeviceYear >= currentYear) {
