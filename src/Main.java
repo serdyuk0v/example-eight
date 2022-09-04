@@ -14,12 +14,16 @@ public class Main {
         getClientOs(clientOs, clientDeviceYear);
 
         //Задание №3
-        int deliveryDistance = 87;
-        deliveryTime(deliveryDistance);
+        int deliveryDistance = -22;
+        if (deliveryTime(deliveryDistance) > 3 || deliveryTime(deliveryDistance) < 1) {
+            System.out.println("Потребуется помощь логистики");
+        } else {
+            System.out.println("Потребуется " + deliveryTime(deliveryDistance) + " дня для доставки");
+        }
     }
 
     //Метод для задания №1
-    public static void checkYear (int year){
+    private static void checkYear (int year){
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println(year + " - високосный год.");
         } else {
@@ -28,7 +32,7 @@ public class Main {
     }
 
     //Метод для задания №2
-    public static void getClientOs (int clientOs, int clientDeviceYear) {
+    private static void getClientOs (int clientOs, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
         if (clientOs <= 1 && clientOs >= 0) {
             if (clientOs == 1 && clientDeviceYear >= currentYear) {
@@ -46,15 +50,15 @@ public class Main {
     }
 
     //Метод для задания №3
-    public static void deliveryTime (int deliveryDistance) {
-        if (deliveryDistance < 20) {
-            System.out.println("Потребуется 1 день для доставки");
+    private static int deliveryTime (int deliveryDistance) {
+        if (deliveryDistance < 20 && deliveryDistance > 0) {
+            return 1;
         } else if (deliveryDistance >= 20 && deliveryDistance < 60) {
-            System.out.println("Потребуется 2 дня для доставки");
+            return 2;
         } else if (deliveryDistance >= 60 && deliveryDistance <= 100) {
-            System.out.println("Потребуется 3 дня для доставки");
+            return 3;
         } else {
-            System.out.println("Потребуется помощь специалиста логистики");
+            return 0;
         }
     }
 }
